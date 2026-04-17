@@ -1,0 +1,58 @@
+# ── Quartus-Ausgaben (reproduzierbar, nicht einchecken) ──────────────────────
+**/*.rpt
+**/*.smsg
+**/*.summary
+**/*.jdi
+**/*.sld
+**/*.flow.rpt
+**/*.map.rpt
+**/*.fit.rpt
+**/*.sta.rpt
+**/*.asm.rpt
+**/*.done
+**/*.map
+**/*.qws
+**/*.htm
+**/*_pin_model_dump.txt
+**/.qsys_edit/
+
+# ── Kompilierte Bitstreams (groß, reproduzierbar) ─────────────────────────────
+**/*.sof
+**/*.rbf
+**/*.jic
+**/*.pof
+
+# ── QSYS-generierte Synthesedateien ──────────────────────────────────────────
+**/synthesis/submodules/
+**/synthesis/*.debuginfo
+**/synthesis/*.regmap
+**/greybox_tmp/
+
+# ── Angstrom OS-Image (sehr groß, >2 GB) ─────────────────────────────────────
+Environment/*.sdimg
+Environment/*.tgz
+Environment/*sdimg*
+
+# ── Kompilierte Binaries und IDE-Artefakte ────────────────────────────────────
+**/*.elf
+**/*.objdump
+**/.force_relink
+**/.cproject
+**/.project
+**/summary.html
+**/mem_init/*.qip
+**/mem_init/*.spd
+
+# ── Eclipse/Nios II IDE Metadata ─────────────────────────────────────────────
+**/.metadata/
+**/.settings/
+**/obj/
+**/mem_init/hdl_sim/
+**/RemoteSystemsTempFiles/
+
+# ── Python ───────────────────────────────────────────────────────────────────
+**/__pycache__/
+**/*.pyc
+
+# ── Obsidian ─────────────────────────────────────────────────────────────────
+Doc/.obsidian/

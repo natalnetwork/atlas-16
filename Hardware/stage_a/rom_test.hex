@@ -1,0 +1,45 @@
+// =============================================================================
+// rom_test.hex — Hack Testprogramm: Framebuffer mit 0xFFFF füllen (weiß)
+//
+// Handassembliert aus:
+//   @16384        ; SCREEN = 0x4000
+//   D=A
+//   @R0           ; addr-Zeiger in RAM[0]
+//   M=D
+//   @8192         ; 8192 Wörter Framebuffer
+//   D=A
+//   @R1           ; Schleifenzähler in RAM[1]
+//   M=D
+//   (LOOP)        ; PC=8
+//   @R0
+//   A=M           ; A = Zeiger
+//   M=-1          ; screen[A] = 0xFFFF
+//   @R0
+//   M=M+1         ; Zeiger++
+//   @R1
+//   MD=M-1        ; Zähler--
+//   @LOOP
+//   D;JGT         ; wenn Zähler > 0: weiter
+//   (END)         ; PC=17
+//   @END
+//   0;JMP
+// =============================================================================
+4000
+EC10
+0000
+E308
+2000
+EC10
+0001
+E308
+0000
+FC20
+EE88
+0000
+FDC8
+0001
+FC98
+0008
+E301
+0011
+EA87
