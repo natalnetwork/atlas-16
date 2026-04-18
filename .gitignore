@@ -44,6 +44,11 @@ Hardware/stage_a/hack_hps_sys/
 # ── Java Build-Artefakte ──────────────────────────────────────────────────────
 Software/atlas16/target/
 
+# ── VS Code Extension ─────────────────────────────────────────────────────────
+Software/vscode-atlas16/node_modules/
+Software/vscode-atlas16/out/
+Software/vscode-atlas16/*.vsix
+
 # ── Kompilierte Binaries und IDE-Artefakte ────────────────────────────────────
 **/*.elf
 **/*.objdump
