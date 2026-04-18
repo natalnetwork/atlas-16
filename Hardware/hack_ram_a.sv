@@ -1,6 +1,11 @@
 // =============================================================================
 // hack_ram_a.sv — Datenspeicher des Atlas 16 (Stufe A: Hack-kompatibel)
 //
+// Architektur-Spezifikation:
+//   Nisan & Schocken, "The Elements of Computing Systems", 2nd Ed., MIT Press
+//   https://www.nand2tetris.org
+// Die SystemVerilog-Implementierung ist eigenständige Arbeit des Autors.
+//
 // Implementiert den Datenspeicher-Adressraum für Stufe A:
 //
 //   0x0000–0x3FFF  RAM  (16 KB, Hack-kompatibel)

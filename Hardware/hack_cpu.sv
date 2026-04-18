@@ -6,6 +6,11 @@
 // Diese Datei bleibt absichtlich unverändert gegenüber der Hack-Spezifikation,
 // um vollständige Rückwärtskompatibilität zu gewährleisten.
 //
+// Architektur-Spezifikation:
+//   Nisan & Schocken, "The Elements of Computing Systems", 2nd Ed., MIT Press
+//   https://www.nand2tetris.org
+// Die SystemVerilog-Implementierung ist eigenständige Arbeit des Autors.
+//
 // ISA Übersicht:
 //   A-Instruction: 0vvvvvvvvvvvvvvv  → lade 15-bit Wert in Register A
 //   C-Instruction: 111accccccdddjjj  → ALU-Operation, Ziel, Sprung

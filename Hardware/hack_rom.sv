@@ -1,6 +1,11 @@
 // =============================================================================
 // hack_rom.sv — Instruction Memory (ROM) des Atlas 16
 //
+// Architektur-Spezifikation:
+//   Nisan & Schocken, "The Elements of Computing Systems", 2nd Ed., MIT Press
+//   https://www.nand2tetris.org
+// Die SystemVerilog-Implementierung ist eigenständige Arbeit des Autors.
+//
 // Speichert das Hack+-Programm als 32.768 × 16-bit Worte (64 KB).
 // Wird beim Start vom HPS über die Mailbox-Bridge befüllt.
 // Der Instruction Bus ist vom Data Bus physisch getrennt (Harvard).

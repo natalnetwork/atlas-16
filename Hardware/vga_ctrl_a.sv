@@ -141,10 +141,7 @@ module vga_ctrl_a (
             // Data Enable: aktiv im sichtbaren Bereich
             de <= (h_cnt < H_ACTIVE) && (v_cnt < V_ACTIVE);
 
-            // TEST: weißes Bild im aktiven Bereich (Framebuffer-Lesepfad deaktiviert)
-            // → Quartus optimiert das MLAB heraus, Compile-Zeit sinkt drastisch
-            // → Wenn HDMI Signal kommt: I2C-Init funktioniert
-            hdmi_d <= in_image ? 24'hFFFFFF : 24'h000000;
+            hdmi_d <= (in_image && pixel_val) ? 24'hFFFFFF : 24'h000000;
         end
     end
 
