@@ -1,0 +1,76 @@
+{
+  "name": "Jack",
+  "scopeName": "source.jack",
+  "fileTypes": ["jack"],
+  "patterns": [
+    { "include": "#comment-block" },
+    { "include": "#comment-line" },
+    { "include": "#string" },
+    { "include": "#keyword" },
+    { "include": "#type" },
+    { "include": "#constant" },
+    { "include": "#number" },
+    { "include": "#class-name" },
+    { "include": "#subroutine-call" },
+    { "include": "#identifier" },
+    { "include": "#operator" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comment-block": {
+      "name": "comment.block.jack",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    "comment-line": {
+      "name": "comment.line.double-slash.jack",
+      "match": "//.*$"
+    },
+    "string": {
+      "name": "string.quoted.double.jack",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": []
+    },
+    "keyword": {
+      "name": "keyword.control.jack",
+      "match": "\\b(class|constructor|function|method|field|static|var|let|do|if|else|while|return|void)\\b"
+    },
+    "type": {
+      "name": "storage.type.jack",
+      "match": "\\b(int|char|boolean)\\b"
+    },
+    "constant": {
+      "name": "constant.language.jack",
+      "match": "\\b(true|false|null|this)\\b"
+    },
+    "number": {
+      "name": "constant.numeric.jack",
+      "match": "\\b[0-9]+\\b"
+    },
+    "class-name": {
+      "comment": "Großgeschriebene Bezeichner = Klassen",
+      "name": "entity.name.type.class.jack",
+      "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+    },
+    "subroutine-call": {
+      "comment": "foo.bar() oder foo()",
+      "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+      "captures": {
+        "1": { "name": "entity.name.function.jack" }
+      }
+    },
+    "identifier": {
+      "name": "variable.other.jack",
+      "match": "\\b[a-z_][A-Za-z0-9_]*\\b"
+    },
+    "operator": {
+      "name": "keyword.operator.jack",
+      "match": "[+\\-*/&|<>=~]"
+    },
+    "punctuation": {
+      "name": "punctuation.jack",
+      "match": "[{}()\\[\\].,;]"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "name": "atlas16-asm",
+  "displayName": "Atlas 16",
+  "description": "Hack+ Assembly und Jack für den Atlas 16 FPGA-Computer",
+  "version": "0.1.0",
+  "publisher": "natalnetwork",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/natalnetwork/atlas-16"
+  },
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Programming Languages", "Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+
+  "contributes": {
+    "languages": [
+      {
+        "id": "hack-asm",
+        "aliases": ["Hack+ Assembly", "hack-asm"],
+        "extensions": [".asm"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "jack",
+        "aliases": ["Jack", "jack"],
+        "extensions": [".jack"],
+        "configuration": "./language-configuration-jack.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "hack-asm",
+        "scopeName": "source.hack-asm",
+        "path": "./syntaxes/hack-asm.tmLanguage.json"
+      },
+      {
+        "language": "jack",
+        "scopeName": "source.jack",
+        "path": "./syntaxes/jack.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "atlas16.compile",
+        "title": "Atlas 16: Kompilieren",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "atlas16.compileAndLoad",
+        "title": "Atlas 16: Kompilieren & Hochladen",
+        "icon": "$(rocket)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "atlas16.compileAndLoad",
+          "when": "resourceLangId == hack-asm || resourceLangId == jack",
+          "group": "navigation"
+        },
+        {
+          "command": "atlas16.compile",
+          "when": "resourceLangId == hack-asm || resourceLangId == jack",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Atlas 16",
+      "properties": {
+        "atlas16.jarPath": {
+          "type": "string",
+          "default": "",
+          "description": "Pfad zur atlas16.jar (leer = aus Workspace-Verzeichnis suchen)"
+        },
+        "atlas16.deviceIp": {
+          "type": "string",
+          "default": "",
+          "description": "IP-Adresse des DE10-Nano (z.B. 192.168.10.153)"
+        },
+        "atlas16.sshUser": {
+          "type": "string",
+          "default": "root",
+          "description": "SSH-Benutzer auf dem DE10-Nano"
+        },
+        "atlas16.target": {
+          "type": "string",
+          "enum": ["hack", "hack+"],
+          "default": "hack+",
+          "description": "Zielarchitektur: hack (N2T-kompatibel) oder hack+ (Atlas 16)"
+        }
+      }
+    }
+  },
+
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
